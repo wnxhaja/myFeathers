@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app/index.js --exec babel-node",
+    "start": "nodemon src/index.js --exec babel-node",
     "test": "mocha test/ --recursive --compilers js:babel-register"
   },
   "author": "",
