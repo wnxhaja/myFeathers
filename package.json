@@ -1,0 +1,19 @@
+{
+  "name": "tago",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app/index.js --exec babel-node",
+    "test": "mocha test/ --recursive --compilers js:babel-register"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-async-to-generator": "^6.16.0",
+    "babel-preset-es2015-node6": "^0.4.0",
+    "compression": "^1.6.2",
+    "feathers": "^2.0.3"
+  }
+}
