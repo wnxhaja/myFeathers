@@ -1,9 +1,10 @@
 const path = require("path");
+console.log(path.resolve(path.join(__dirname, '/client/index.js')))
 
 module.exports = {
   // context: path.resolve('js'),
   entry: [
-    path.join(__dirname, 'client/index.js'),
+    path.join(__dirname, '/client/index.js'),
   ],
   output: {
     path: path.join( __dirname, '/build/client'),
