@@ -22,7 +22,6 @@ app.use(compress())
 .use(bodyParser.json())
 .use(bodyParser.urlencoded({ extended: true }))
 .use(serveStatic('build/public'))
-.use(serveStatic('../photos'))
 .use(serveStatic('build/client'));
 
 app.configure(hooks())
