@@ -1,7 +1,7 @@
 import React from 'react';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
 
-const Text2 = () => <div><h1>wasak</h1></div>;
+const Text2 = () => <div><h1>HELLO WORLD!</h1></div>;
 
 class Text extends React.Component{
   constructor(props){
