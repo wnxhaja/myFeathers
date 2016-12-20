@@ -1,3 +1,4 @@
+const serveStatic = require('feathers').static;
 import settings from './settings';
 
 import feathers from 'feathers';
@@ -7,6 +8,9 @@ import socketio from 'feathers-socketio';
 import compress from 'compression';
 import services from './services';
 import bodyParser from 'body-parser';
+import primus from 'feathers-primus';
+
+import reactHtml from '../public/index.js'
 
 import mongoose from 'mongoose';
 mongoose.Promise = global.Promise;
@@ -16,7 +20,10 @@ const app = feathers();
 
 app.use(compress())
 .use(bodyParser.json())
-.use(bodyParser.urlencoded({ extended: true }));
+.use(bodyParser.urlencoded({ extended: true }))
+.use(serveStatic('build/public'))
+.use(serveStatic('../photos'))
+.use(serveStatic('build/client'));
 
 app.configure(hooks())
 .configure(rest())
@@ -24,8 +31,9 @@ app.configure(hooks())
 .configure(settings)
 .configure(services);
 
+
 app.get("/", function(req, res){
-  res.write("asdasd");
+  res.write(reactHtml());
   return res.end();
 });
 

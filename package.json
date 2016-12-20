@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.js --exec babel-node",
-    "test": "mocha test/ --recursive --compilers js:babel-register"
+    "test": "mocha test/ --recursive --compilers js:babel-register",
+    "build-dev": "webpack --config webpack.dev.config.js -p; babel src -d build/server; cp -r public build/",
+    "start-dev": "nodemon build/server/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,8 +21,15 @@
     "feathers": "^2.0.3",
     "feathers-hooks": "^1.7.1",
     "feathers-mongoose": "^3.6.1",
+    "feathers-primus": "^2.0.0",
     "feathers-rest": "^1.5.2",
     "feathers-socketio": "^1.4.2",
-    "mongoose": "^4.7.3"
+    "mongoose": "^4.7.3",
+    "ws": "^1.1.1"
+  },
+  "devDependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-router": "^3.0.0"
   }
 }
