@@ -8,7 +8,6 @@ module.exports = function(){
     </head>
     <body>
       <h1>Welcome to Feathers</h1>
-      <p>Open up the console in your browser.</p>
       <div id="root"></div>
       <script src="/bundle.js"></script>
     </body>
