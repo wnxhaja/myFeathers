@@ -6,7 +6,10 @@ const hooks = require('feathers-hooks');
 
 exports.before = {
   all: [],
-  find: [],
+  find: [function(params,callback){
+    console.log(params)
+    callback();
+  }],
   get: [],
   create: [],
   update: [],

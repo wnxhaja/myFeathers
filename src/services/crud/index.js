@@ -17,7 +17,7 @@ module.exports = function() {
 
   // Initialize our service with any options it requires
   app.use('/cruds', service(options));
-
+  
   // Get our initialize service to that we can bind hooks
   const crudService = app.service('cruds');
 

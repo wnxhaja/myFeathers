@@ -7,23 +7,28 @@ import socketio from 'feathers-socketio';
 import compress from 'compression';
 import services from './services';
 import bodyParser from 'body-parser';
-import cors from 'cors';
+
+import mongoose from 'mongoose';
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost:27017/feathers_local");
 
 const app = feathers();
 
-app.use(compress)
-.options('*', cors())
-.use(cors())
+app.use(compress())
 .use(bodyParser.json())
-.use(bodyParser.urlencoded({ extended: true }))
-.configure(hooks())
+.use(bodyParser.urlencoded({ extended: true }));
+
+app.configure(hooks())
 .configure(rest())
 .configure(socketio())
 .configure(settings)
-.configure(services)
+.configure(services);
 
-const server = app.listen(app.get('port'));
+app.get("/", function(req, res){
+  res.write("asdasd");
+  return res.end();
+});
 
-server.on('listening', () =>
-  console.log(`listening to port ${app.get('port')}`)
-);
+app.listen(3090, function(){
+  console.log("application running in port ", 3090);
+});
